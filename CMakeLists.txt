@@ -25,6 +25,3 @@ FetchContent_Declare(
   GIT_TAG        v2.13.4)
 
 FetchContent_MakeAvailable(Catch2)
-
-add_executable(tests test.cpp)
-target_link_libraries(tests PRIVATE Catch2::Catch2)
