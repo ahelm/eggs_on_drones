@@ -13,4 +13,4 @@ if("${CMAKE_CXX_COMPILER_ID}" MATCHES "(GNU|Clang)")
     )
 endif()
 
-target_link_libraries(dronenav PRIVATE drone)
+target_link_libraries(dronenav PRIVATE Dronenav::Drone)

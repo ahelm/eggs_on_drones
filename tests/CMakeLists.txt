@@ -8,4 +8,4 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 
 add_executable(test_drone test_drone.cpp)
-target_link_libraries(test_drone PRIVATE Catch2::Catch2 drone)
+target_link_libraries(test_drone PRIVATE Catch2::Catch2 Dronenav::Drone)
