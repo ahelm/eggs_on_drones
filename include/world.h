@@ -11,6 +11,7 @@ namespace dronenav
     int height_;
     std::vector<Drone> drones_;
   public:
+    World(int width, int height);
     int width();
     int height();
     std::vector<Drone> drones();
