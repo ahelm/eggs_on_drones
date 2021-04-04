@@ -23,5 +23,7 @@ namespace dronenav
     int x();
     int y();
     std::string direction();
+    void turn_left();
+    void turn_right();
   };
 } // namespace dronenav

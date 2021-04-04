@@ -42,3 +42,41 @@ std::string dronenav::Drone::direction()
     return "E";
   }
 }
+
+void dronenav::Drone::turn_left()
+{
+  switch (direction_)
+  {
+  case North:
+    direction_ = dronenav::Direction::West;
+    break;
+  case South:
+    direction_ = dronenav::Direction::East;
+    break;
+  case West:
+    direction_ = dronenav::Direction::South;
+    break;
+  case East:
+    direction_ = dronenav::Direction::North;
+    break;
+  }
+}
+
+void dronenav::Drone::turn_right()
+{
+  switch (direction_)
+  {
+  case North:
+    direction_ = dronenav::Direction::East;
+    break;
+  case South:
+    direction_ = dronenav::Direction::West;
+    break;
+  case West:
+    direction_ = dronenav::Direction::North;
+    break;
+  case East:
+    direction_ = dronenav::Direction::South;
+    break;
+  }
+}

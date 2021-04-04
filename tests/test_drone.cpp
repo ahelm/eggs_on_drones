@@ -25,3 +25,65 @@ TEST_CASE("Test drone directions", "[dronenav::Drone::direction]")
   dronenav::Drone drone4{0, 1, "W"};
   REQUIRE(drone4.direction() == "W");
 }
+
+TEST_CASE("Test drone turning left", "[dronenav::Drone::turn_left]")
+{
+  SECTION("Check: North -> West")
+  {
+    dronenav::Drone drone{0, 1, "N"};
+    drone.turn_left();
+    REQUIRE(drone.direction() == "W");
+  }
+
+  SECTION("Check: West -> South")
+  {
+    dronenav::Drone drone{0, 1, "W"};
+    drone.turn_left();
+    REQUIRE(drone.direction() == "S");
+  }
+
+  SECTION("Check: South -> East")
+  {
+    dronenav::Drone drone{0, 1, "S"};
+    drone.turn_left();
+    REQUIRE(drone.direction() == "E");
+  }
+
+  SECTION("Check: East -> North")
+  {
+    dronenav::Drone drone{0, 1, "E"};
+    drone.turn_left();
+    REQUIRE(drone.direction() == "N");
+  }
+}
+
+TEST_CASE("Test drone turning right", "[dronenav::Drone::turn_right]")
+{
+  SECTION("Check: North -> East")
+  {
+    dronenav::Drone drone{0, 1, "N"};
+    drone.turn_right();
+    REQUIRE(drone.direction() == "E");
+  }
+
+  SECTION("Check: East -> South")
+  {
+    dronenav::Drone drone{0, 1, "E"};
+    drone.turn_right();
+    REQUIRE(drone.direction() == "S");
+  }
+
+  SECTION("Check: South -> West")
+  {
+    dronenav::Drone drone{0, 1, "S"};
+    drone.turn_right();
+    REQUIRE(drone.direction() == "W");
+  }
+
+  SECTION("Check: West -> North")
+  {
+    dronenav::Drone drone{0, 1, "W"};
+    drone.turn_right();
+    REQUIRE(drone.direction() == "N");
+  }
+}
