@@ -20,17 +20,17 @@ dronenav::Drone::Drone(int x, int y, std::string direction)
 
 int dronenav::Drone::x()
 {
-  return this->x_;
+  return x_;
 }
 
 int dronenav::Drone::y()
 {
-  return this->y_;
+  return y_;
 }
 
 std::string dronenav::Drone::direction()
 {
-  switch (this->direction_)
+  switch (direction_)
   {
   case North:
     return "N";

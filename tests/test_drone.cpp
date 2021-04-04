@@ -87,3 +87,4 @@ TEST_CASE("Test drone turning right", "[dronenav::Drone::turn_right]")
     REQUIRE(drone.direction() == "N");
   }
 }
+
