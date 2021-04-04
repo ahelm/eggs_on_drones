@@ -1,21 +1,28 @@
 #include "drone.h"
 #include <exception>
 
-dronenav::Drone::Drone(int x, int y, std::string direction)
+dronenav::Drone::Drone(int x, int y, const char &direction)
 {
   x_ = x;
   y_ = y;
 
-  if (direction == "N")
+  switch (direction)
+  {
+  case 'N':
     direction_ = dronenav::Direction::North;
-  else if (direction == "S")
+    break;
+  case 'S':
     direction_ = dronenav::Direction::South;
-  else if (direction == "E")
+    break;
+  case 'E':
     direction_ = dronenav::Direction::East;
-  else if (direction == "W")
+    break;
+  case 'W':
     direction_ = dronenav::Direction::West;
-  else
+    break;
+  default:
     throw std::invalid_argument("Direction has to be a 'N', 'S', 'E', or 'W'");
+  }
 };
 
 int dronenav::Drone::x()
@@ -28,18 +35,18 @@ int dronenav::Drone::y()
   return y_;
 }
 
-std::string dronenav::Drone::direction()
+char dronenav::Drone::direction()
 {
   switch (direction_)
   {
   case North:
-    return "N";
+    return 'N';
   case South:
-    return "S";
+    return 'S';
   case West:
-    return "W";
+    return 'W';
   case East:
-    return "E";
+    return 'E';
   }
 }
 
@@ -100,13 +107,13 @@ void dronenav::Drone::move()
   }
 }
 
-void dronenav::Drone::process_instruction(const std::string &instruction)
+void dronenav::Drone::process_instruction(const char &instruction)
 {
-  if (instruction == "L")
+  if (instruction == 'L')
     turn_left();
-  else if (instruction == "R")
+  else if (instruction == 'R')
     turn_right();
-  else if (instruction == "M")
+  else if (instruction == 'M')
     move();
   else
     throw std::invalid_argument("Instruction has to be 'L', 'R', or 'M'");

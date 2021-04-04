@@ -19,13 +19,13 @@ namespace dronenav
     Direction direction_;
 
   public:
-    Drone(int x, int y, std::string direction);
+    Drone(int x, int y, const char& direction);
     int x();
     int y();
-    std::string direction();
+    char direction();
     void turn_left();
     void turn_right();
     void move();
-    void process_instruction(const std::string& instruction);
+    void process_instruction(const char& instruction);
   };
 } // namespace dronenav

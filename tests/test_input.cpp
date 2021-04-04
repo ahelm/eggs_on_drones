@@ -14,5 +14,5 @@ TEST_CASE("Test drone info parsing", "[dronenav::parse_drone_info]")
   auto [x, y, direction] = dronenav::parse_drone_info("1 4 W");
   REQUIRE(x == 1);
   REQUIRE(y == 4);
-  REQUIRE(direction == "W");
+  REQUIRE(direction == 'W');
 }
