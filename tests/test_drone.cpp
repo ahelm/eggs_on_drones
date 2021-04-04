@@ -122,3 +122,25 @@ TEST_CASE("Test drone moving", "[dronenav::Drone::move]")
     REQUIRE(drone.y() == 2);
   }
 }
+
+TEST_CASE("Test drone opcode processing", "[dronenav::Drone::process]")
+{
+  SECTION("Process  'L' instruction")
+  {
+    dronenav::Drone drone{0, 1, "N"};
+    drone.process_instruction("L");
+    REQUIRE(drone.direction() == "W");
+  }
+  SECTION("Process  'R' instruction")
+  {
+    dronenav::Drone drone{0, 1, "N"};
+    drone.process_instruction("R");
+    REQUIRE(drone.direction() == "E");
+  }
+  SECTION("Process  'M' instruction")
+  {
+    dronenav::Drone drone{0, 1, "N"};
+    drone.process_instruction("M");
+    REQUIRE(drone.y() == 2);
+  }
+}

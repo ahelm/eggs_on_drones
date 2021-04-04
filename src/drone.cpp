@@ -99,3 +99,15 @@ void dronenav::Drone::move()
     break;
   }
 }
+
+void dronenav::Drone::process_instruction(const std::string &instruction)
+{
+  if (instruction == "L")
+    turn_left();
+  else if (instruction == "R")
+    turn_right();
+  else if (instruction == "M")
+    move();
+  else
+    throw std::invalid_argument("Instruction has to be 'L', 'R', or 'M'");
+}

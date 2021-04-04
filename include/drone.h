@@ -26,5 +26,6 @@ namespace dronenav
     void turn_left();
     void turn_right();
     void move();
+    void process_instruction(const std::string& instruction);
   };
 } // namespace dronenav
