@@ -15,5 +15,6 @@ namespace dronenav
     int width();
     int height();
     std::vector<Drone> drones();
+    void add_drone(Drone new_drone);
   };
 } // namespace dronenav

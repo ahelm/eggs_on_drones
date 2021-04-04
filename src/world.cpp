@@ -20,3 +20,8 @@ std::vector<dronenav::Drone> dronenav::World::drones()
 {
   return drones_;
 }
+
+void dronenav::World::add_drone(Drone new_drone)
+{
+  drones_.push_back(new_drone);
+}
