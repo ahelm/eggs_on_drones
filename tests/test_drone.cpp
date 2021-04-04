@@ -88,3 +88,37 @@ TEST_CASE("Test drone turning right", "[dronenav::Drone::turn_right]")
   }
 }
 
+TEST_CASE("Test drone moving", "[dronenav::Drone::move]")
+{
+  SECTION("Check: facing north")
+  {
+    dronenav::Drone drone{2, 2, "N"};
+    drone.move();
+    REQUIRE(drone.x() == 2);
+    REQUIRE(drone.y() == 3);
+  }
+
+  SECTION("Check: facing south")
+  {
+    dronenav::Drone drone{2, 2, "S"};
+    drone.move();
+    REQUIRE(drone.x() == 2);
+    REQUIRE(drone.y() == 1);
+  }
+
+  SECTION("Check: facing west")
+  {
+    dronenav::Drone drone{2, 2, "W"};
+    drone.move();
+    REQUIRE(drone.x() == 1);
+    REQUIRE(drone.y() == 2);
+  }
+
+  SECTION("Check: facing east")
+  {
+    dronenav::Drone drone{2, 2, "E"};
+    drone.move();
+    REQUIRE(drone.x() == 3);
+    REQUIRE(drone.y() == 2);
+  }
+}

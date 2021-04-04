@@ -80,3 +80,22 @@ void dronenav::Drone::turn_right()
     break;
   }
 }
+
+void dronenav::Drone::move()
+{
+  switch (direction_)
+  {
+  case North:
+    y_++;
+    break;
+  case South:
+    y_--;
+    break;
+  case West:
+    x_--;
+    break;
+  case East:
+    x_++;
+    break;
+  }
+}
