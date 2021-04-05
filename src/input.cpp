@@ -4,7 +4,7 @@
 #include <algorithm>
 #include <iostream>
 
-std::tuple<std::string, std::string> dronenav::split_by_space(const std::string& line)
+std::tuple<std::string, std::string> dronenav::split_by_space(const std::string &line)
 {
   std::string delimitter = " ";
   std::string line_copy = line;
@@ -27,14 +27,13 @@ std::tuple<int, int> dronenav::parse_world_size(std::string line)
 
 std::tuple<int, int, char> dronenav::parse_drone_info(std::string line)
 {
-  std::string delimitter = " ";
+  auto [x_str, rest_without_x] = dronenav::split_by_space(line);
+  auto [y_str, rest] = dronenav::split_by_space(rest_without_x);
+  auto [direction_str, _] = dronenav::split_by_space(rest);
 
-  auto x = std::stoi(line.substr(0, line.find(delimitter)));
-  line.erase(0, line.find(delimitter) + delimitter.length());
-  auto y = std::stoi(line.substr(0, line.find(" ")));
-  line.erase(0, line.find(delimitter) + delimitter.length());
-  // take only the first index of matched string -> char representing direction
-  auto direction = line.substr(0, line.find(" "))[0];
+  auto x = std::stoi(x_str);
+  auto y = std::stoi(y_str);
+  auto direction = direction_str[0];
 
   return std::make_tuple(x, y, direction);
 }
