@@ -4,6 +4,16 @@
 #include <algorithm>
 #include <iostream>
 
+std::tuple<std::string, std::string> dronenav::split_by_space(const std::string& line)
+{
+  std::string delimitter = " ";
+  std::string line_copy = line;
+  auto match_str = line_copy.substr(0, line_copy.find(delimitter));
+  line_copy.erase(0, line_copy.find(delimitter) + delimitter.length());
+
+  return std::make_tuple(match_str, line_copy);
+}
+
 std::tuple<int, int> dronenav::parse_world_size(std::string line)
 {
   std::string delimitter = " ";
