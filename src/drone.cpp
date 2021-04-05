@@ -21,7 +21,7 @@ dronenav::Drone::Drone(int x, int y, const char &direction)
     direction_ = dronenav::Direction::West;
     break;
   default:
-    throw std::invalid_argument("Direction has to be a 'N', 'S', 'E', or 'W'");
+    throw std::invalid_argument("Direction has to be 'N', 'S', 'E', or 'W'");
   }
 };
 
@@ -109,12 +109,19 @@ void dronenav::Drone::move()
 
 void dronenav::Drone::process_instruction(const char &instruction)
 {
-  if (instruction == 'L')
+  switch (instruction)
+  {
+  case 'L':
     turn_left();
-  else if (instruction == 'R')
+    break;
+  case 'R':
     turn_right();
-  else if (instruction == 'M')
+    break;
+  case 'M':
     move();
-  else
+    break;
+  default:
     throw std::invalid_argument("Instruction has to be 'L', 'R', or 'M'");
+    break;
+  }
 }
