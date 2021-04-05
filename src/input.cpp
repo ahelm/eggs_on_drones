@@ -14,7 +14,7 @@ std::tuple<std::string, std::string> dronenav::split_by_space(const std::string 
   return std::make_tuple(match_str, line_copy);
 }
 
-std::tuple<int, int> dronenav::parse_world_size(std::string line)
+std::tuple<int, int> dronenav::parse_world_size(const std::string& line)
 {
   auto [width_str, rest] = dronenav::split_by_space(line);
   auto [height_str, _] = dronenav::split_by_space(rest);
@@ -25,7 +25,7 @@ std::tuple<int, int> dronenav::parse_world_size(std::string line)
   return std::make_tuple(width, height);
 }
 
-std::tuple<int, int, char> dronenav::parse_drone_info(std::string line)
+std::tuple<int, int, char> dronenav::parse_drone_info(const std::string& line)
 {
   auto [x_str, rest_without_x] = dronenav::split_by_space(line);
   auto [y_str, rest] = dronenav::split_by_space(rest_without_x);
