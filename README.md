@@ -78,3 +78,10 @@ build/tests/test_drone
 build/tests/test_input
 build/tests/test_world
 ```
+
+## Next steps
+
+Following points might need attention in the future
+
+- Validate performance
+- Provide better error output, e.g. own `try`-block around `std::atoi`
