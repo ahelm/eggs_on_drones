@@ -16,16 +16,11 @@ std::tuple<std::string, std::string> dronenav::split_by_space(const std::string&
 
 std::tuple<int, int> dronenav::parse_world_size(std::string line)
 {
-  std::string delimitter = " ";
+  auto [width_str, rest] = dronenav::split_by_space(line);
+  auto [height_str, _] = dronenav::split_by_space(rest);
 
-  // find 1st number until first ' ' and convert it to int
-  auto width = std::stoi(line.substr(0, line.find(delimitter)));
-
-  // reduce string by removing 1st match
-  line.erase(0, line.find(delimitter) + delimitter.length());
-
-  // find 2nd match
-  auto height = std::stoi(line.substr(0, line.find(" ")));
+  auto width = std::stoi(width_str);
+  auto height = std::stoi(height_str);
 
   return std::make_tuple(width, height);
 }
