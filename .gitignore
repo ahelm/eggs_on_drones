@@ -110,3 +110,5 @@ $RECYCLE.BIN/
 
 # Project build directory
 build
+.cache
+
